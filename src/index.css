@@ -5,4 +5,22 @@
 body {
   background-color: #eceef7;
   height: 100vh;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+}
+input {
+  box-shadow: inset 3px 3px 6px #00000020, inset -3px -3px 6px #ffffff;
+}
+
+input::placeholder {
+  font-weight: bold;
+  padding-left: 6px;
+  font-size: 14px;
+  color: #6c6c6c;
+  opacity: 0.7;
+}
+
+.shadow-button {
+  box-shadow: inset 4px 4px 8px #8779e3, inset -2px -2px 4px #9686ff,
+    4px 8px 15px rgba(150, 134, 255, 0.5);
 }
