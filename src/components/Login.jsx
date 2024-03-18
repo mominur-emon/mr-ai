@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div>
-      <form className="p">
-        <div className=" flex items-center relative mt-[60px]  mb-[25px]">
+      <form className="">
+        <div className=" flex items-center relative mt-[100px]  mb-[25px]">
           <img
             src="/images/profile.png"
             alt="profile"
@@ -13,7 +13,7 @@ const Login = () => {
           <input
             type="email"
             placeholder="User ID"
-            className="pl-9 py-2  border outline-none rounded-lg bg-[#ECEEF7]"
+            className="pl-9 py-2  border outline-none rounded-lg bg-[#ECEEF7] w-full"
             required
           />
         </div>
@@ -26,7 +26,7 @@ const Login = () => {
           <input
             type="password"
             placeholder="Password"
-            className="pl-9 py-2  border outline-none rounded-lg bg-[#ECEEF7]"
+            className="pl-9  py-2  border outline-none rounded-lg bg-[#ECEEF7] w-full"
             required
           />
         </div>

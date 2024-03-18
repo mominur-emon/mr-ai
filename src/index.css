@@ -24,3 +24,8 @@ input::placeholder {
   box-shadow: inset 4px 4px 8px #8779e3, inset -2px -2px 4px #9686ff,
     4px 8px 15px rgba(150, 134, 255, 0.5);
 }
+
+.drop-shadow-circle {
+  box-shadow: 0px 10px 20px rgba(113, 92, 255, 0.2),
+    /* Bottom shadow */ 10px 0px 20px rgba(113, 92, 255, 0.2); /* Right shadow */
+}
