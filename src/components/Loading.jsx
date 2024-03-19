@@ -55,7 +55,7 @@ const Loading = () => {
       </div>
       <div className="relative w-full  h-4 bg-gray-200 rounded-full overflow-hidden drop-shadow-lg">
         <div
-          className="absolute z-0 top-0 left-0 h-full bg-blue-400 transition-width duration-500 ease-in-out "
+          className="absolute z-0 top-0 left-0 h-full bg-[#9686FF] transition-width duration-500 ease-in-out "
           style={{ width: `${progress}% ` }}
         ></div>
       </div>
