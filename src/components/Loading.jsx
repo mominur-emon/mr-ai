@@ -15,14 +15,13 @@ const Loading = () => {
 
   useEffect(() => {
     const timer1 = setTimeout(() => {
-      setCurrentImageIndex(1); // Display the second image after 1 second
+      setCurrentImageIndex(1);
     }, 1000);
 
     const timer2 = setTimeout(() => {
-      setCurrentImageIndex(2); // Display the third image after another second
+      setCurrentImageIndex(2);
     }, 2000);
 
-    // Clear timeouts when the component unmounts
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
@@ -36,12 +35,12 @@ const Loading = () => {
         if (newProgress >= 100) {
           clearInterval(interval);
           // Navigate to "/welcome" when loading is complete
-          //   navigate("/welcome");
+          navigate("/welcome");
           return 100;
         }
         return newProgress;
       });
-    }, 500); // Change this value to adjust the speed of progress
+    }, 500); // speed of progress
 
     return () => clearInterval(interval);
   }, [navigate]);
@@ -54,14 +53,14 @@ const Loading = () => {
           alt={`Image ${currentImageIndex + 1}`}
         />
       </div>
-      <div className="relative w-full h-4 bg-gray-200 rounded-md overflow-hidden">
+      <div className="relative w-full  h-4 bg-gray-200 rounded-full overflow-hidden drop-shadow-lg">
         <div
-          className="absolute z-0 top-0 left-0 h-full bg-blue-500 transition-width duration-500 ease-in-out"
-          style={{ width: `${progress}%` }}
+          className="absolute z-0 top-0 left-0 h-full bg-blue-400 transition-width duration-500 ease-in-out "
+          style={{ width: `${progress}% ` }}
         ></div>
       </div>
 
-      <p className="text-center text-gray-600 text-sm font-bold pt-4 pb-8">
+      <p className="text-center text-[#6C6C6C]/[0.7] text-[14px] font-bold pt-[16px] pb-[25px]">
         Loading...
       </p>
     </div>
