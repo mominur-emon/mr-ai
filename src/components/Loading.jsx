@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Loading = () => {
+  const navigate = useNavigate();
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [progress, setProgress] = useState(0);
+
   const images = [
     "/images/Robo/1.1.gif",
     "/images/Robo/2.gif",
     "/images/Robo/3.gif",
   ];
-
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const timer1 = setTimeout(() => {
@@ -25,14 +29,14 @@ const Loading = () => {
     };
   }, []);
 
-  const [progress, setProgress] = useState(0);
-
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prevProgress) => {
         const newProgress = prevProgress + 10;
         if (newProgress >= 100) {
           clearInterval(interval);
+          // Navigate to "/welcome" when loading is complete
+          //   navigate("/welcome");
           return 100;
         }
         return newProgress;
@@ -40,7 +44,7 @@ const Loading = () => {
     }, 500); // Change this value to adjust the speed of progress
 
     return () => clearInterval(interval);
-  }, []);
+  }, [navigate]);
 
   return (
     <div>
@@ -52,12 +56,13 @@ const Loading = () => {
       </div>
       <div className="relative w-full h-4 bg-gray-200 rounded-md overflow-hidden">
         <div
-          className="absolute top-0 left-0 h-full bg-gradient-to-r from-blue-500 to-green-500 rounded-l-full transition-width duration-500 ease-in-out"
+          className="absolute z-0 top-0 left-0 h-full bg-blue-500 transition-width duration-500 ease-in-out"
           style={{ width: `${progress}%` }}
         ></div>
       </div>
-      <p className="text-center text-[#6C6C6C]/[0.7] text-[14px] font-bold pt-[16px] pb-[25px]">
-        Loading......
+
+      <p className="text-center text-gray-600 text-sm font-bold pt-4 pb-8">
+        Loading...
       </p>
     </div>
   );

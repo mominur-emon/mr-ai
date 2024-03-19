@@ -26,6 +26,6 @@ input::placeholder {
 }
 
 .drop-shadow-circle {
-  box-shadow: 0px 10px 20px rgba(113, 92, 255, 0.2),
-    /* Bottom shadow */ 10px 0px 20px rgba(113, 92, 255, 0.2); /* Right shadow */
+  box-shadow: 0px 10px 20px rgba(113, 92, 255, 0.1),
+    /* Bottom shadow */ 10px 0px 20px rgba(113, 92, 255, 0.1); /* Right shadow */
 }

@@ -31,7 +31,7 @@ const Login = () => {
           />
         </div>
 
-        <Link to="/welcome">
+        <Link to="/loading">
           <button className="bg-[#9686ff] w-full h-[35px] rounded-full flex items-center justify-center  shadow-button mt-[30px] mb-[10px] text-white font-bold text-[14px] cursor-pointer">
             Sign In
           </button>

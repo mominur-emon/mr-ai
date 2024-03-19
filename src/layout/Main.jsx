@@ -27,7 +27,7 @@ const Main = () => {
           />
         </div>
         <div className="absolute bg-[#715CFF] top-[-30px] right-[-30px] w-[110px] h-[110px] rounded-full drop-shadow-circle  ">
-          <div className="absolute top-[0.7px] left-[0.7px] bottom-[0.2px] bg-[#ECEEF7] py-[30px] px-[20px] rounded-full  ">
+          <div className="absolute top-[0.7px] left-[0.7px] bottom-[0.1px] bg-[#ECEEF7] py-[30px] px-[20px] rounded-full  ">
             <img
               src="/images/logo.png"
               alt="Logo"
