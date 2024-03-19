@@ -6,11 +6,17 @@ import Main from "./layout/Main";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Welcome from "./components/Welcome";
+import Start from "./components/Start";
+import Loading from "./components/Loading";
 
 const router = createBrowserRouter([
   {
     element: <Main />,
     children: [
+      {
+        path: "/",
+        element: <Start />,
+      },
       {
         path: "/login",
         element: <Login />,
@@ -19,10 +25,14 @@ const router = createBrowserRouter([
         path: "/signup",
         element: <SignUp />,
       },
+      {
+        path: "/loading",
+        element: <Loading />,
+      },
     ],
   },
   {
-    path: "/",
+    path: "/welcome",
     element: <Welcome />,
   },
 ]);

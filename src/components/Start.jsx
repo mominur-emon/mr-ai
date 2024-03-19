@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const Welcome = () => {
+const Start = () => {
   const images = [
     "/images/Robo/1.1.gif",
     "/images/Robo/2.gif",
@@ -27,18 +27,21 @@ const Welcome = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <div className="w-[284px] h-[310px] mb-[60px] ">
+    <div>
+      <div className="pt-[30px] w-[284px] h-[284px] mb-[120px] mr-[-40px] ml-[-25px] ">
         <img
           src={images[currentImageIndex]}
           alt={`Image ${currentImageIndex + 1}`}
         />
       </div>
-      <p className="text-center text-[#9686FF]/[0.7] text-[22px] font-bold pl-[20px]">
-        WELCOME
-      </p>
+
+      <Link to="/login">
+        <button className="bg-[#9686ff] w-full h-[35px] rounded-full flex items-center justify-center  shadow-button  mb-[45px] text-white text-[14px] cursor-pointer ">
+          Get Started
+        </button>
+      </Link>
     </div>
   );
 };
 
-export default Welcome;
+export default Start;

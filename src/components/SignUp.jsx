@@ -43,18 +43,18 @@ const SignUp = () => {
             required
           />
         </div>
-        <div className="bg-[#9686ff] w-full h-[35px] rounded-full flex items-center justify-center  shadow-button mt-[30px] mb-[10px]">
-          <Link to="/">
-            <button className="text-white font-bold text-[14px] ">
-              Sign Up
-            </button>
-          </Link>
-        </div>
+        <Link to="/login">
+          <button className="bg-[#9686ff] w-full h-[35px] rounded-full flex items-center justify-center  shadow-button mt-[30px] mb-[10px] text-white font-bold text-[14px] cursor-pointer">
+            Sign Up
+          </button>
+        </Link>
 
         <p className="text-[11px] text-center text-[#5E5E5E] pb-[25px]">
           Already have an account ? or{" "}
           <Link to="/login">
-            <span className="text-[#7F6BFF] font-bold">Sign In</span>
+            <span className="text-[#7F6BFF] font-bold cursor-pointer">
+              Sign In
+            </span>
           </Link>
         </p>
       </form>
