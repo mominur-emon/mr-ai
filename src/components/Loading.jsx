@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Slider } from "antd";
 
 const Loading = () => {
   const navigate = useNavigate();
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(3);
 
   const images = [
     "/images/Robo/1.1.gif",
@@ -40,7 +41,7 @@ const Loading = () => {
         }
         return newProgress;
       });
-    }, 500); // speed of progress
+    }, 300); // speed of progress
 
     return () => clearInterval(interval);
   }, [navigate]);
@@ -53,12 +54,41 @@ const Loading = () => {
           alt={`Image ${currentImageIndex + 1}`}
         />
       </div>
-      <div className="relative w-full  h-4 bg-gray-200 rounded-full overflow-hidden drop-shadow-lg">
+      {/* <div className="relative w-full  h-4 bg-gray-200 rounded-full overflow-hidden drop-shadow-lg">
         <div
           className="absolute z-0 top-0 left-0 h-full bg-[#9686FF] transition-width duration-500 ease-in-out "
           style={{ width: `${progress}% ` }}
         ></div>
-      </div>
+      </div> */}
+      <Slider
+        value={progress}
+        style={{ marginBottom: "5px" }}
+        railStyle={{
+          backgroundColor: "rgba(0, 0, 0, 0.04)",
+          height: "14px",
+          borderRadius: "7px",
+        }}
+        trackStyle={{
+          backgroundColor: "#9686FF",
+          height: "14px",
+          borderRadius: "7px",
+        }}
+        handleStyle={{
+          borderColor: "#9686FF",
+          marginLeft: "-5px",
+          marginTop: "5px",
+          // transform: "translateX(-50%)",
+        }}
+        dotStyle={{
+          borderColor: "#9686FF",
+          width: "20px",
+          height: "20px",
+          display: "none",
+        }}
+        dotActiveStyle={{
+          borderColor: "#91caff",
+        }}
+      />
 
       <p className="text-center text-[#6C6C6C]/[0.7] text-[14px] font-bold pt-[16px] pb-[25px]">
         Loading...
