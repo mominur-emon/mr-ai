@@ -61,7 +61,7 @@ const Loading = () => {
 
     const interval = setInterval(() => {
       setProgress((prevProgress) => {
-        const newProgress = prevProgress + 10;
+        const newProgress = prevProgress + 5;
         if (newProgress >= 100) {
           clearInterval(interval);
           // Navigate to "/welcome" when loading is complete
@@ -70,7 +70,7 @@ const Loading = () => {
         }
         return newProgress;
       });
-    }, 500); // speed of progress
+    }, 80); // speed of progress
 
     return () => clearInterval(interval);
   }, [navigate, imagesLoaded]);
