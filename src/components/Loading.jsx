@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Slider } from "antd";
+import "@radix-ui/themes/styles.css";
+import { Slider, Theme } from "@radix-ui/themes";
 
 const Loading = () => {
   const navigate = useNavigate();
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [progress, setProgress] = useState(3);
+  const [progress, setProgress] = useState(0);
 
   const images = [
     "/images/Robo/1.1.gif",
@@ -41,7 +42,7 @@ const Loading = () => {
         }
         return newProgress;
       });
-    }, 300); // speed of progress
+    }, 500); // speed of progress
 
     return () => clearInterval(interval);
   }, [navigate]);
@@ -60,35 +61,9 @@ const Loading = () => {
           style={{ width: `${progress}% ` }}
         ></div>
       </div> */}
-      <Slider
-        value={progress}
-        style={{ marginBottom: "5px" }}
-        railStyle={{
-          backgroundColor: "rgba(0, 0, 0, 0.04)",
-          height: "14px",
-          borderRadius: "7px",
-        }}
-        trackStyle={{
-          backgroundColor: "#9686FF",
-          height: "14px",
-          borderRadius: "7px",
-        }}
-        handleStyle={{
-          borderColor: "#9686FF",
-          marginLeft: "-5px",
-          marginTop: "5px",
-          // transform: "translateX(-50%)",
-        }}
-        dotStyle={{
-          borderColor: "#9686FF",
-          width: "20px",
-          height: "20px",
-          display: "none",
-        }}
-        dotActiveStyle={{
-          borderColor: "#91caff",
-        }}
-      />
+      <Theme>
+        <Slider value={[progress]} variant="soft" />
+      </Theme>
 
       <p className="text-center text-[#6C6C6C]/[0.7] text-[14px] font-bold pt-[16px] pb-[25px]">
         Loading...
