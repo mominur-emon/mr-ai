@@ -8,6 +8,7 @@ const Loading = () => {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
 
   const images = [
     "/images/Robo/1.1.gif",
@@ -16,6 +17,30 @@ const Loading = () => {
   ];
 
   useEffect(() => {
+    const preloadImages = async () => {
+      try {
+        await Promise.all(
+          images.map((imageSrc) => {
+            return new Promise((resolve, reject) => {
+              const image = new Image();
+              image.onload = resolve;
+              image.onerror = reject;
+              image.src = imageSrc;
+            });
+          })
+        );
+        setImagesLoaded(true);
+      } catch (error) {
+        console.error("Failed to preload images:", error);
+      }
+    };
+
+    preloadImages();
+  }, [images]);
+
+  useEffect(() => {
+    if (!imagesLoaded) return;
+
     const timer1 = setTimeout(() => {
       setCurrentImageIndex(1);
     }, 1000);
@@ -28,9 +53,11 @@ const Loading = () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
     };
-  }, []);
+  }, [imagesLoaded]);
 
   useEffect(() => {
+    if (!imagesLoaded) return;
+
     const interval = setInterval(() => {
       setProgress((prevProgress) => {
         const newProgress = prevProgress + 10;
@@ -45,15 +72,17 @@ const Loading = () => {
     }, 500); // speed of progress
 
     return () => clearInterval(interval);
-  }, [navigate]);
+  }, [navigate, imagesLoaded]);
 
   return (
     <div>
       <div className="pt-[30px] w-[284px] h-[284px] mb-[120px] mr-[-40px] ml-[-25px] ">
-        <img
-          src={images[currentImageIndex]}
-          alt={`Image ${currentImageIndex + 1}`}
-        />
+        {imagesLoaded && (
+          <img
+            src={images[currentImageIndex]}
+            alt={`Image ${currentImageIndex + 1}`}
+          />
+        )}
       </div>
       {/* <div className="relative w-full  h-4 bg-gray-200 rounded-full overflow-hidden drop-shadow-lg">
         <div
