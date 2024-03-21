@@ -42,13 +42,14 @@ const Loading = () => {
     if (!imagesLoaded) return;
 
     const timer1 = setTimeout(() => {
-      setCurrentImageIndex(1);
+      setCurrentImageIndex(1); // Display the second image after 1 second
     }, 1000);
 
     const timer2 = setTimeout(() => {
-      setCurrentImageIndex(2);
+      setCurrentImageIndex(2); // Display the third image after another second
     }, 2000);
 
+    // Clear timeouts when the component unmounts
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
@@ -81,6 +82,7 @@ const Loading = () => {
           <img
             src={images[currentImageIndex]}
             alt={`Image ${currentImageIndex + 1}`}
+            // className="fade-in-out"
           />
         )}
       </div>
